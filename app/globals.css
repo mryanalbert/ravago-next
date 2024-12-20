@@ -3,19 +3,344 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navbar-height-md: 90px;
+  --navbar-height-sm: 70px;
+
+  --pri-text-dark: #2e3135;
+  --pri-text-yellow: #fecb00;
+  --pri-text-light: #fefefb;
+  --pri-text-orange: #ffae00;
+
+  --secon-text-dark: #7a7a7a;
+
+  --pri-bg-dark: #2e3135;
+  --pri-bg-yellow: #fecb00;
+  --pri-bg-light: #fefefb;
+  --pri-bg-orange: #ffae00;
+
+  --secon-bg-dark: #7a7a7a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* styles/globals.css */
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-Black.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-BlackItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+.pri-text-dark {
+  color: var(--pri-text-dark);
+}
+.pri-text-yellow {
+  color: var(--pri-text-yellow);
+}
+.secondary-text-orange {
+  color: var(--pri-text-orange);
+}
+.acc-text-lightgray {
+  color: #a9a9a9;
+}
+.acc-textgray {
+  color: #4a4a4a;
+}
+.acc-text-yellow {
+  color: #ffeb3b;
+}
+
+.pri-bg-dark {
+  background-color: var(--pri-bg-dark);
+}
+.pri-bg-yellow {
+  background-color: var(--pri-bg-yellow);
+}
+.secondary-bg-orange {
+  background-color: var(--pri-bg-orange);
+}
+.acc-bg-lightgray {
+  background-color: #a9a9a9;
+}
+.acc-bg-gray {
+  background-color: #4a4a4a;
+}
+.acc-bg-yellow {
+  background-color: #ffeb3b;
+}
+
+.roboto-thin {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.roboto-light {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.roboto-thin-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.roboto-light-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.roboto-regular-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.roboto-medium-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.roboto-bold-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.roboto-black-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  height: 100%;
 }
+
+/* Style for the button */
+.scroll-to-top-btn {
+  background-color: var(--pri-bg-yellow);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  padding: 9px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--pri-text-dark);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+img {
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  height: var(--navbar-height-md);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  z-index: 1001;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for background and shadow */
+}
+
+header.scrolled {
+  background-color: white;
+  box-shadow: 0 3px 30px rgba(90, 90, 90, 0.2); /* Optional: add a subtle shadow to the navbar when scrolled */
+}
+
+header nav ul li a.a-scrolled {
+  color: var(--pri-text-dark);
+}
+
+header nav ul li a.a-scrolled:hover {
+  color: var(--pri-text-yellow);
+}
+
+.logo {
+  width: 200px;
+}
+
+nav {
+  margin-top: 17px;
+}
+
+nav .logo {
+  display: none;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li a {
+  color: white;
+  /* color: #212529; */
+  display: block;
+  margin: 0 2px;
+  padding: 8px 18px;
+  transition: 0.2s;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav ul li:last-child > a {
+  padding: 8px 0px; /* Different padding for the last item */
+}
+
+nav ul li a:hover {
+  /* color: #ffbe00; */
+  color: var(--pri-text-yellow);
+}
+
+nav ul li a.active {
+  background-color: var(--pri-bg-yellow);
+  color: var(--pri-text-dark);
+  /* font-weight: 500; */
+}
+
+.hamburger {
+  display: none;
+  height: fit-content;
+  cursor: pointer;
+  transition: 0.2s;
+  padding: 20px 20px;
+  margin-top: -4px;
+  padding: 27px 20px;
+}
+
+.hamburger:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.hamburger div {
+  width: 30px;
+  height: 2.5px;
+  margin: 6px 0;
+  border-radius: 5px;
+}
+.hamburger-scrolled {
+  background-color: var(--pri-bg-dark);
+}
+.hamburger-not-scrolled {
+  background-color: white;
+}
+/* HEADER */
+/* NAVIGATION BAR */
