@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 
 export default function Header() {
   const [isNavChecked, setIsNavChecked] = useState(false);
-  console.log(isNavChecked);
 
   const pathname = usePathname();
 
@@ -103,6 +102,8 @@ export default function Header() {
     };
   }, []);
 
+  const hideNavbar = (e) => setIsNavChecked(false);
+
   return (
     <>
       <div
@@ -159,6 +160,7 @@ export default function Header() {
               <Link
                 href="/"
                 className={pathname == "/" ? "active roboto-medium" : ""}
+                onClick={hideNavbar}
               >
                 Home
               </Link>
@@ -167,6 +169,7 @@ export default function Header() {
               <Link
                 href="/about"
                 className={pathname == "/about" ? "active roboto-medium" : ""}
+                onClick={hideNavbar}
               >
                 About Us
               </Link>
@@ -177,6 +180,7 @@ export default function Header() {
                 className={
                   pathname == "/certifications" ? "active roboto-medium" : ""
                 }
+                onClick={hideNavbar}
               >
                 Certifications
               </Link>
@@ -187,6 +191,7 @@ export default function Header() {
                 className={
                   pathname == "/projects" ? "active roboto-medium" : ""
                 }
+                onClick={hideNavbar}
               >
                 Projects
               </Link>
@@ -197,6 +202,7 @@ export default function Header() {
                 className={
                   pathname == "/rental-services" ? "active roboto-medium" : ""
                 }
+                onClick={hideNavbar}
               >
                 Rental Services
               </Link>
@@ -205,6 +211,7 @@ export default function Header() {
               <Link
                 href="/careers"
                 className={pathname == "/careers" ? "active roboto-medium" : ""}
+                onClick={hideNavbar}
               >
                 Careers
               </Link>
@@ -213,6 +220,7 @@ export default function Header() {
               <Link
                 href="/contact"
                 className={pathname == "/contact" ? "active roboto-medium" : ""}
+                onClick={hideNavbar}
               >
                 Contact Us
               </Link>
