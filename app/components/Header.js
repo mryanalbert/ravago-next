@@ -5,9 +5,12 @@ import "boxicons/css/boxicons.min.css";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Header() {
+  const [isNavChecked, setIsNavChecked] = useState(false);
+  console.log(isNavChecked);
+
   const pathname = usePathname();
 
   useEffect(() => {
@@ -91,38 +94,14 @@ export default function Header() {
       });
     }
 
-    // Add event listener for #nav_check
-    const navCheck = document.getElementById("nav_check");
-    const overlay = document.getElementById("overlay");
-
-    const handleNavCheckClick = () => {
-      if (window.getComputedStyle(overlay).display === "block") {
-        overlay.style.display = "none";
-        navCheck.checked = false;
-      } else {
-        overlay.style.display = "block";
-      }
-    };
-
-    const handleOverlayClick = () => {
-      overlay.style.display = "none";
-      navCheck.checked = false;
-    };
-
-    // Add the event listeners
-    navCheck.addEventListener("click", handleNavCheckClick);
-    overlay.addEventListener("click", handleOverlayClick);
-
     // Cleanup event listeners to prevent memory leaks
     return () => {
       window.removeEventListener("scroll", toggleNavbarBackground);
       window.removeEventListener("resize", toggleNavbarBackground);
-      navCheck.removeEventListener("click", handleNavCheckClick);
-      overlay.removeEventListener("click", handleOverlayClick);
 
       AOS.refresh();
     };
-  }, []); // Empty dependency array ensures this effect runs once on mount
+  }, []);
 
   return (
     <>
@@ -133,10 +112,11 @@ export default function Header() {
           position: "fixed",
           backgroundColor: "black",
           opacity: 0.5,
-          height: "100%",
+          height: "100vh",
           width: "100%",
-          display: "none",
+          display: isNavChecked ? "block" : "none",
         }}
+        onClick={(e) => setIsNavChecked(false)}
       ></div>
       <button
         id="scrollToTopBtn"
@@ -152,9 +132,8 @@ export default function Header() {
             alt="Logo image"
             id="logo-light"
             fill
-            className="object-contain" // This ensures the image doesn't stretch or crop, just fits within the container
+            className="object-contain"
             sizes="100%"
-            // priority
           />
 
           <Image
@@ -162,18 +141,24 @@ export default function Header() {
             alt="Logo image"
             id="logo-dark"
             fill
-            className="hidden object-contain" // This ensures the image doesn't stretch or crop, just fits within the container
+            className="hidden object-contain"
             sizes="100%"
           />
         </div>
-        <input type="checkbox" id="nav_check" hidden />
+        <input
+          type="checkbox"
+          id="nav_check"
+          onChange={(e) => setIsNavChecked((prev) => !prev)}
+          checked={isNavChecked}
+          hidden
+        />
 
         <nav>
           <ul>
             <li>
               <Link
                 href="/"
-                className={`${pathname == "/" ? "active roboto-medium" : ""}`}
+                className={pathname == "/" ? "active roboto-medium" : ""}
               >
                 Home
               </Link>
@@ -181,9 +166,7 @@ export default function Header() {
             <li>
               <Link
                 href="/about"
-                className={`${
-                  pathname == "/about" ? "active roboto-medium" : ""
-                }`}
+                className={pathname == "/about" ? "active roboto-medium" : ""}
               >
                 About Us
               </Link>
@@ -191,9 +174,9 @@ export default function Header() {
             <li>
               <Link
                 href="/certifications"
-                className={`${
+                className={
                   pathname == "/certifications" ? "active roboto-medium" : ""
-                }`}
+                }
               >
                 Certifications
               </Link>
@@ -201,9 +184,9 @@ export default function Header() {
             <li>
               <Link
                 href="/projects"
-                className={`${
+                className={
                   pathname == "/projects" ? "active roboto-medium" : ""
-                }`}
+                }
               >
                 Projects
               </Link>
@@ -211,9 +194,9 @@ export default function Header() {
             <li>
               <Link
                 href="/rental-services"
-                className={`${
+                className={
                   pathname == "/rental-services" ? "active roboto-medium" : ""
-                }`}
+                }
               >
                 Rental Services
               </Link>
@@ -221,9 +204,7 @@ export default function Header() {
             <li>
               <Link
                 href="/careers"
-                className={`${
-                  pathname == "/careers" ? "active roboto-medium" : ""
-                }`}
+                className={pathname == "/careers" ? "active roboto-medium" : ""}
               >
                 Careers
               </Link>
@@ -231,9 +212,7 @@ export default function Header() {
             <li>
               <Link
                 href="/contact"
-                className={`${
-                  pathname == "/contact" ? "active roboto-medium" : ""
-                }`}
+                className={pathname == "/contact" ? "active roboto-medium" : ""}
               >
                 Contact Us
               </Link>

@@ -277,6 +277,10 @@ header nav ul li a.a-scrolled:hover {
   @apply relative w-full max-w-[200px] aspect-[2/1];
 }
 
+.next-img {
+  @apply relative w-full;
+}
+
 nav {
   /* margin-top: 17px; */
 }
@@ -490,7 +494,8 @@ h1 {
 } */
 
 .footer-logo {
-  @apply relative w-full max-w-[300px] aspect-[2/1];
+  aspect-ratio: 3.51 / 1;
+  @apply relative w-full max-w-[300px];
 }
 
 .footer-content h4 {
@@ -583,6 +588,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 25px;
+    padding: 80px 51px;
   }
 
   .services-card {
@@ -604,7 +610,7 @@ h1 {
     top: 0;
     z-index: 1004;
     width: 280px;
-    height: 100svh;
+    height: 100vh;
     /* background-color: #212529; */
     background-color: white;
     transition: 0.2s;
@@ -690,16 +696,16 @@ h1 {
   .footer {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.2rem;
+  }
+
+  .footer-logo {
+    aspect-ratio: 3.51 / 1;
+    @apply relative w-full max-w-[200px];
   }
 
   .footer h4 {
     margin-bottom: 0.5rem;
-  }
-
-  .footer img {
-    max-width: 200px;
-    width: 100%;
   }
 
   .footer-content {
@@ -710,12 +716,12 @@ h1 {
     text-align: center;
   }
 
-  .footer-content:first-child p,
-  .icons {
+  .footer-content:first-child p {
     margin-top: 10px;
   }
 
   .icons {
+    margin-left: 10px;
     margin-top: -10px;
   }
   /* FOOTER SECTION */
