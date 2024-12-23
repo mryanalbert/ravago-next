@@ -230,7 +230,6 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  display: none;
   padding: 9px 10px;
   border: none;
   border-radius: 5px;
@@ -254,7 +253,7 @@ header {
   justify-content: space-between;
   padding: 0 30px;
   margin: 0 auto;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   z-index: 1001;
   transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for background and shadow */
@@ -269,7 +268,7 @@ header nav ul li a.a-scrolled {
   color: var(--pri-text-dark);
 }
 
-header nav ul li a.a-scrolled:hover {
+header nav ul li a.a-scrolled:hover:not(.active) {
   color: var(--pri-text-yellow);
 }
 
@@ -306,9 +305,9 @@ nav ul li a {
   font-weight: 500;
 }
 
-nav ul li:last-child > a {
-  padding: 8px 0px; /* Different padding for the last item */
-}
+/* nav ul li:last-child > a {
+  padding: 8px 18px;
+} */
 
 nav ul li a:hover {
   /* color: #ffbe00; */
@@ -365,20 +364,21 @@ nav ul li a.active {
   user-select: none;
 }
 
-/* .hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100svh;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1;
-} */
+.hero-not-home {
+  background: transparent;
+  color: white; /* White text */
+  height: calc(100svh - var(--navbar-height-md));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 0 20px;
+  user-select: none;
+}
 
 .hero-content {
   z-index: 2;
-  margin-top: 50px;
 }
 
 h1 {
@@ -414,6 +414,40 @@ h1 {
   gap: 50px;
 }
 
+.second-section-about {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 300px);
+  width: 100%;
+  max-width: 1220px;
+  padding: 80px 51px;
+  height: 100%;
+  gap: 50px;
+}
+
+.certifications-section {
+  width: 100%;
+  max-width: 1220px;
+  padding: 80px 51px;
+  height: 100%;
+  gap: 50px;
+}
+
+.iso-certs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.third-section-about {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) 1fr;
+  width: 100%;
+  max-width: 1220px;
+  padding: 80px 51px;
+  height: 100%;
+  gap: 50px;
+}
+
 .section-text {
   color: var(--pri-text-yellow);
   font-size: 20px;
@@ -429,6 +463,13 @@ h1 {
 }
 
 .section-body {
+  font-size: 18px;
+  color: var(--secon-text-dark);
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+.mission-list {
   font-size: 18px;
   color: var(--secon-text-dark);
   margin-top: 20px;
@@ -580,6 +621,10 @@ h1 {
   /* HEADER */
   /* NAVIGATION BAR */
 
+  #services {
+    height: 100%;
+  }
+
   .services-cards {
     height: 100%;
   }
@@ -651,6 +696,18 @@ h1 {
   }
   /* HEADER */
   /* NAVIGATION BAR */
+
+  .second-section-about {
+    grid-template-columns: 1fr;
+  }
+
+  .second-section-about-images {
+    display: none;
+  }
+
+  .third-section-about {
+    grid-template-columns: 1fr;
+  }
 
   .lower-section {
     flex-direction: column;
@@ -759,6 +816,18 @@ h1 {
 
   .lower-section {
     padding: 50px 13px;
+  }
+
+  .second-section-about {
+    padding: 50px 13px;
+  }
+
+  .third-section-about {
+    padding: 50px 13px;
+  }
+
+  .hero-not-home {
+    height: calc(100svh - var(--navbar-height-sm));
   }
 
   #hero {

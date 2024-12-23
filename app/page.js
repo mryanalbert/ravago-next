@@ -21,7 +21,7 @@ export default function Home() {
           className="hero-overlay bg-black opacity-50 fixed top-0 start-0 object-cover w-full h-full"
           style={{ zIndex: -1 }}
         ></div>
-        <div className="hero-content">
+        <div className="hero-content mt-16">
           <h1
             className="roboto-bold w-full text-center mx-auto leading-tight"
             style={{ maxWidth: 865 }}
@@ -104,10 +104,10 @@ export default function Home() {
       {/* About Section */}
 
       {/* Services Section */}
-      <section id="services" className="bg-gray-100">
+      <section id="services" className="bg-gray-50">
         <div
           id="services-wrapper"
-          className="services-cards mx-auto bg-gray-100"
+          className="services-cards mx-auto bg-gray-50"
         >
           <div
             className="services-content"
