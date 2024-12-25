@@ -439,7 +439,7 @@ h1 {
 }
 
 .iso-cert {
-  @apply px-5 py-4 hover:shadow-md rounded-lg;
+  @apply px-5 py-4 hover:shadow-md rounded-lg border-gray-100 border-2;
 }
 
 .third-section-about {

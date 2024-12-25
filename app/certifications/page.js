@@ -2,7 +2,8 @@
 import Image from "next/image";
 
 export default function Certifications() {
-  const handleClick = (file) => {
+  const handleClick = (file, e) => {
+    e.preventDefault();
     window.open(`/docs/${file}`, "_blank");
   };
 
@@ -53,7 +54,7 @@ export default function Certifications() {
                 </div>
                 <p
                   className="mt-4 text-blue-500 hover:underline"
-                  onClick={() => handleClick("ISO_9001_2015.pdf")}
+                  onClick={(e) => handleClick("ISO_9001_2015.pdf", e)}
                 >
                   <a href="#">See Certificate {`>>`}</a>
                 </p>
@@ -89,7 +90,7 @@ export default function Certifications() {
                 </div>
                 <p
                   className="mt-4 text-blue-500 hover:underline"
-                  onClick={() => handleClick("ISO_14001_2018.pdf")}
+                  onClick={(e) => handleClick("ISO_14001_2018.pdf", e)}
                 >
                   <a href="#">See Certificate {`>>`}</a>
                 </p>
@@ -125,7 +126,7 @@ export default function Certifications() {
                 </div>
                 <p
                   className="mt-4 text-blue-500 hover:underline"
-                  onClick={() => handleClick("ISO_45001_2018.pdf")}
+                  onClick={(e) => handleClick("ISO_45001_2018.pdf", e)}
                 >
                   <a href="#">See Certificate {`>>`}</a>
                 </p>
