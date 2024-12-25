@@ -435,7 +435,11 @@ h1 {
 .iso-certs {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px;
+  gap: 20px;
+}
+
+.iso-cert {
+  @apply px-5 py-4 hover:shadow-md rounded-lg;
 }
 
 .third-section-about {
@@ -733,6 +737,11 @@ h1 {
   .services-cards {
     padding: 80px 51px;
   }
+
+  .iso-certs {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 
 @media only screen and (max-width: 830px) {
@@ -823,6 +832,10 @@ h1 {
   }
 
   .third-section-about {
+    padding: 50px 13px;
+  }
+
+  .certifications-section {
     padding: 50px 13px;
   }
 
