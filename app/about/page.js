@@ -7,7 +7,7 @@ export default function About() {
       <section className="hero-not-home">
         <div className="fixed w-full" style={{ zIndex: -2 }}>
           <div
-            className="next-img aspect-[1.78/1] object-cover w-full"
+            className="next-img aspect-[1.78/1] object-cover"
             style={{ height: "100vh" }}
           >
             <Image

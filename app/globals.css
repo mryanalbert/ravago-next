@@ -414,6 +414,17 @@ h1 {
   gap: 50px;
 }
 
+.contact-section {
+  padding: 80px 51px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  width: 100%;
+  max-width: 1220px;
+  height: 100%;
+  gap: 20px;
+}
+
 .second-section-about {
   display: grid;
   grid-template-columns: 1fr minmax(0, 300px);
@@ -720,6 +731,14 @@ h1 {
     padding: 80px 51px;
   }
 
+  .contact-form-wrapper {
+    @apply px-7 py-8;
+  }
+
+  .info-text {
+    @apply w-56;
+  }
+
   .section-heading {
     font-size: 50px;
   }
@@ -756,6 +775,19 @@ h1 {
 
   .services-card {
     padding: 22px 27px;
+  }
+
+  .contact-section {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .contact-form-wrapper {
+    @apply px-14 py-10;
+  }
+
+  .info-text {
+    @apply w-full;
   }
 
   /* FOOTER SECTION */
@@ -835,8 +867,29 @@ h1 {
     padding: 50px 13px;
   }
 
+  .contact-us-heading {
+    @apply py-10;
+  }
+
+  .contact-section {
+    padding: 0px 0 0;
+  }
+
+  .company-details {
+    padding: 0 13px;
+    @apply gap-5;
+  }
+
+  .map {
+    height: 370px;
+  }
+
   .certifications-section {
     padding: 50px 13px;
+  }
+
+  .contact-form-wrapper {
+    @apply px-7 py-14;
   }
 
   .hero-not-home {
