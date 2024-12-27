@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <main>
       {/* Section */}
-      <section id="contact" className=" border-b-4 border-white">
+      <section id="contact" className="mb-5">
         <div className="fixed w-full" style={{ zIndex: -2 }}>
           <div className="next-img aspect-[1.33/1] object-cover h-[100vh]">
             <Image

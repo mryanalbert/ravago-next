@@ -1,35 +1,50 @@
 "use client";
 
+import { useRef, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 
 export default function ContactForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors, isSubmitting },
   } = useForm();
+
+  const [capVal, setCapVal] = useState(null);
+  const recaptchaRef = useRef(null);
 
   const onSubmit = async (data) => {
     try {
+      if (!capVal) {
+        alert("Please verify you are a human.");
+        return;
+      }
+
       console.log(data);
       const res = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN_NAME}/api`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, recaptchaToken: capVal }),
       });
 
       if (res.ok) {
         const resData = await res.json();
-        console.log(resData);
+        // console.log(resData);
 
-        alert("Message sent successfully!");
+        if (resData?.message === "Emails sent successfully!") {
+          reset();
+          recaptchaRef.current.reset();
+          alert("Message sent successfully!");
+        }
         return;
       }
-      //   console.log("Failed", res);
+      alert("Something went wrong, please try again.");
     } catch (error) {
-      console.error("Error submitting form:", error);
+      // console.error("Error submitting form:", error);
       alert("There was an error sending your message.");
     }
   };
@@ -134,12 +149,40 @@ export default function ContactForm() {
         </div>
       </div>
 
+      <div className="w-full">
+        <ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
+          onChange={(val) => setCapVal(val)}
+          ref={recaptchaRef}
+        />
+      </div>
+
       <div>
         <button
           type="submit"
+          disabled={isSubmitting}
           className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
-          Send
+          {isSubmitting ? (
+            <span className="animate-spin">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+                />
+              </svg>
+            </span>
+          ) : (
+            "Send"
+          )}
         </button>
       </div>
     </form>

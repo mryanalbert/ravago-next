@@ -22,9 +22,11 @@ const contactFormSchema = z.object({
     .transform((val) => val.trim()),
 });
 
+const RECAPTCHA_SECRET_KEY = process.env.NEXT_PUBLIC_SITE_SECRET_KEY;
+
 export async function POST(req) {
   try {
-    const { name, email, phone, message } = await req.json();
+    const { name, email, phone, message, recaptchaToken } = await req.json();
 
     const result = contactFormSchema.safeParse({ name, email, phone, message });
 
@@ -34,6 +36,22 @@ export async function POST(req) {
         { status: 400 }
       );
     }
+
+    // RECAPTHCA VERIFICATION START
+    const recaptchaVerifyResponse = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+      { method: "POST" }
+    );
+    const recaptchaData = await recaptchaVerifyResponse.json();
+
+    // If the reCAPTCHA verification fails
+    if (!recaptchaData.success) {
+      return NextResponse.json(
+        { message: "reCAPTCHA verification failed. Please try again." },
+        { status: 400 }
+      );
+    }
+    // RECAPTHCA VERIFICATION END
 
     const transporter = nodemailer.createTransport({
       host: "smtp-relay.gmail.com",
