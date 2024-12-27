@@ -443,6 +443,17 @@ h1 {
   gap: 50px;
 }
 
+.projects-wrapper {
+  width: 100%;
+  max-width: 1220px;
+  padding: 80px 51px;
+  height: 100%;
+  gap: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: auto;
+}
+
 .iso-certs {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
