@@ -444,13 +444,13 @@ h1 {
 }
 
 .projects-wrapper {
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 80px 51px;
+  gap: 40px;
   width: 100%;
   max-width: 1220px;
-  padding: 80px 51px;
   height: 100%;
-  gap: 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   margin: auto;
 }
 
@@ -735,6 +735,12 @@ h1 {
     grid-template-columns: 1fr;
   }
 
+  .projects-wrapper {
+    grid-template-columns: 1fr 1fr;
+    padding: 80px 51px;
+    gap: 30px;
+  }
+
   .lower-section {
     flex-direction: column;
     height: 100%;
@@ -799,6 +805,16 @@ h1 {
 
   .info-text {
     @apply w-full;
+  }
+
+  .projects-wrapper {
+    grid-template-columns: 1fr 1fr;
+    padding: 40px 13px;
+    gap: 20px;
+  }
+
+  #projects > p {
+    @apply pt-10;
   }
 
   /* FOOTER SECTION */
@@ -876,6 +892,10 @@ h1 {
 
   .third-section-about {
     padding: 50px 13px;
+  }
+
+  .projects-wrapper {
+    gap: 10px;
   }
 
   .contact-us-heading {
