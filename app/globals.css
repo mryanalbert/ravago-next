@@ -453,6 +453,21 @@ h1 {
   display: grid;
   margin: auto;
 }
+.project-wrapper {
+  padding: 80px 51px;
+  width: 100%;
+  max-width: 1220px;
+  height: 100%;
+  margin: auto;
+}
+
+.project-title {
+  @apply mt-16 text-3xl text-center;
+}
+
+.project-content {
+  @apply mt-10 text-lg;
+}
 
 .iso-certs {
   display: grid;
@@ -811,6 +826,24 @@ h1 {
     grid-template-columns: 1fr 1fr;
     padding: 40px 13px;
     gap: 20px;
+  }
+
+  .project-wrapper {
+    padding: 0;
+    padding-bottom: 50px;
+  }
+
+  .project-wrapper > div > div {
+    @apply h-[380px];
+  }
+
+  .project-title {
+    padding: 0 13px;
+    @apply mt-10;
+  }
+
+  .project-content {
+    @apply mt-6 px-3;
   }
 
   #projects > p {

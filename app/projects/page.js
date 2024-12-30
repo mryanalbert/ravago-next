@@ -19,7 +19,6 @@ export default function Projects() {
         <div className="projects-wrapper">
           {projects.map(({ id, name, img }) => {
             aosDelay += 150;
-            console.log(aosDelay);
             return (
               <div
                 className="project"
