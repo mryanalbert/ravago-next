@@ -2,10 +2,11 @@ import { notFound } from "next/navigation";
 import projects from "../projects.json";
 import Image from "next/image";
 import Link from "next/link";
+import BackLink from "@/app/components/BackLink";
 
 export default async function Project({ params }) {
   const { projectId } = await params;
-  const result = projects.find((proj) => proj.id === parseInt(projectId));
+  const result = projects.find((proj) => proj.id == projectId);
 
   if (result === undefined) {
     notFound();
@@ -17,6 +18,7 @@ export default async function Project({ params }) {
       <section id="project" className="bg-white">
         <div className="project-wrapper">
           <div data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+            <BackLink />
             <div className="w-full relative h-[550px]">
               <Image
                 src={result.img}
