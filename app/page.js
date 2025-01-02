@@ -123,7 +123,7 @@ export default function Home() {
             </p>
           </div>
           <div
-            className="services-card bg-white flex flex-col gap-4"
+            className="services-card bg-white gap-2"
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-once="true"
@@ -152,7 +152,7 @@ export default function Home() {
             </div>
           </div>
           <div
-            className="services-card bg-white d-flex flex-column gap-2"
+            className="services-card bg-white gap-2"
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-once="true"
@@ -181,7 +181,7 @@ export default function Home() {
             </div>
           </div>
           <div
-            className="services-card bg-white d-flex flex-column gap-2"
+            className="services-card bg-white gap-2"
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-once="true"

@@ -12,7 +12,7 @@ const navLinks = [
   { id: 2, content: "About Us", path: "/about" },
   { id: 3, content: "Certifications", path: "/certifications" },
   { id: 4, content: "Projects", path: "/projects" },
-  { id: 5, content: "Rental Services", path: "/rental-services" },
+  { id: 5, content: "Services", path: "/services" },
   { id: 6, content: "Careers", path: "/careers" },
   { id: 7, content: "Contact", path: "/contact" },
 ];
